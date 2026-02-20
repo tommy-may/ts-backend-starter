@@ -1,5 +1,5 @@
 import { env } from '#/config/env';
-import { log } from '#/utils';
+import { log } from '#/utils/logger';
 
 log.info(`Project started in ${env.node_env.toUpperCase()} mode`);
 
