@@ -6,17 +6,24 @@ services:
       context: .
       dockerfile: Dockerfile
       target: production
-    env_file:
-      - .env.production
+    env_file: '.env.production'
+    networks:
+      - app-network
     volumes:
       # Mount logs directory for production logging
       - logs:/app/logs
     restart: unless-stopped
-    networks:
-      - node-net-prod
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+          cpus: '0.25'
 
 networks:
-  node-net-prod:
+  app-network:
     driver: bridge
 
 volumes:

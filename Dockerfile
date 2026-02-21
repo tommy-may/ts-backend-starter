@@ -46,6 +46,4 @@ RUN chown -R nodejs:nodejs /app
 
 USER nodejs
 
-EXPOSE 3000
-
 CMD ["node", "dist/index.js"]
